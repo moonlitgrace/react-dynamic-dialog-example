@@ -1,10 +1,12 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { Forms, FormsState } from "./types"
 import forms from "./forms"
-import { useMain } from "../context/main"
+// import { useMain } from "../context/main"
+import { useModals } from "../hooks/use_modals"
 
 export default function FormsComponent() {
-  const { modalsState, closeModal } = useMain()
+  // const { modalsState, closeModal } = useMain()
+  const { modalsState, closeModal } = useModals()
 
   const [currForm, setCurrForm] = useState(forms['form_one'])
   const [formsState, setFormsState] = useState<FormsState>(() => Object.keys(forms).reduce((acc, key) => {
